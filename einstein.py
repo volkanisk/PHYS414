@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 from functions_einstein import *
 
 # getting M - R values for a rho_c
@@ -22,4 +24,5 @@ for element in rho_c_list:
 plt.scatter(R_list,M_list)
 plt.xlabel("R (m)")
 plt.ylabel("M (kg)")
+plt.title("R vs Mass Graph with changin rho_c")
 plt.show()

@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 from function_newton import *
 
 data = read_csv()       # reading the data from csv
@@ -7,7 +9,8 @@ log_r = -(log_m - data[:,0])/2  # transforming surface gravity to log R
 
 plt.scatter(log_r,log_m)        # log_r log_m graph for all r and m
 plt.xlabel("log_R")
-plt.ylabel("mass")
+plt.ylabel("log_mass")
+
 
 
 log_data = np.transpose(np.vstack((log_m,log_r)))
@@ -15,7 +18,8 @@ small_log_data = log_data[log_data[:,0] < -0.5,:]   # I only used stars that hav
 
 plt.scatter(small_log_data[:,1],small_log_data[:,0])    # Plotting for only small masses
 plt.xlabel("log_R")
-plt.ylabel("mass")
+plt.ylabel("log_mass")
+plt.title("Log_R vs Log_Mass Graph")
 plt.show()
 
 
@@ -40,9 +44,10 @@ R = np.exp(log_r)
 
 rho_c = - M / (4*np.pi) / np.power(R,3) /der_at_r * Xi      # this equation comes from eqn. (6)
 
-plt.scatter(M,rho_c)
-plt.ylabel("rho_c")
-plt.xlabel("mass")
+plt.scatter(rho_c,M)
+plt.title("Rho_c vs Mass Graph")
+plt.xlabel("rho_c")
+plt.ylabel("mass")
 plt.show()
 
 ## Calculating k*
